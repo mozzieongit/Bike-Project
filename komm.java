@@ -99,14 +99,18 @@ public class komm {
 	}
 	
 	public void senden(String send) {
-		try{
-			out.println("Senden: " + send);
-			oos.writeUTF(send);
-			oos.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			e.printStackTrace();
+		if(oos == null){
+			System.out.println("Fehler: oos = null";
+		}else{
+			try{
+				out.println("Senden: " + send);
+				oos.writeUTF(send);
+				oos.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	    
