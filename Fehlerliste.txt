@@ -6,12 +6,6 @@ App:
     Settings
 
 Server:
-    Umschalten des Alarms vom Raspberry aus nur, wenn der Name gleich der ID ist
-       - 4&Bjarne war hier&
-       + 4&ID&
-            (ID auf dem Handy kann was vollkommen irrelevantes sein)
-
-
-    Wenn Alarm vom Handy aus umgeschaltet wird: Java Exception siehe screenshots
-        (wird dadurch dem Raspberry nicht das Signal zum Umschalten geschickt?)
-            sonst: Umschaltsignal wird nicht dem Pi geschickt
+    command: end
+        bewirkt nur 2 "Disconnected!" und "Server Stopped!" Der Java Prozess 
+           läuft jedoch weiter
