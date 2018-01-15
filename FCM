@@ -1,0 +1,28 @@
+public static void Senden(String token,String Titel,String Nachricht) {
+    	try{
+	    	CloseableHttpClient httpclient = HttpClients.createDefault();
+	    
+	    	
+	
+	    	HttpPost httpPost = new HttpPost("http://steffchess.esy.es/fcm/bisafee_fcm.php");
+	    	List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+	    	nvps.add(new BasicNameValuePair("to", token));
+	    	nvps.add(new BasicNameValuePair("title", Titel));
+	    	nvps.add(new BasicNameValuePair("content", Nachricht));
+	    	httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+	    	CloseableHttpResponse response2 = httpclient.execute(httpPost);
+	
+	    	try {
+	    	    //Erfolg?
+	    		System.out.println(response2.getStatusLine());
+	    	    
+	    	    HttpEntity entity = response2.getEntity();
+
+	    	    EntityUtils.consume(entity);
+	    	} finally {
+	    	    response2.close();
+	    	}
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }
