@@ -1,0 +1,36 @@
+
+    public static void setIP(){
+
+		InetAddress ip = null;
+		try {
+			ip = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		String IP = ip.getHostAddress();
+    	try{
+	    	CloseableHttpClient httpclient = HttpClients.createDefault();
+	    
+	    	
+	
+	    	HttpPost httpPost = new HttpPost("http://steffchess.esy.es/Bike-Project/setIP.php");
+	    	List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+	    	nvps.add(new BasicNameValuePair("IP", IP));
+	    	httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+	    	CloseableHttpResponse response2 = httpclient.execute(httpPost);
+	
+	    	try {
+	    	    //Erfolg?
+	    		System.out.println(response2.getStatusLine());
+	    	    
+	    	    HttpEntity entity = response2.getEntity();
+
+	    	    EntityUtils.consume(entity);
+	    	} finally {
+	    	    response2.close();
+	    	}
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	
+    }
