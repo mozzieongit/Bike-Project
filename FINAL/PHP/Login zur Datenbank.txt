@@ -1,0 +1,10 @@
+
+1. Auf die Seite https://de.000webhost.com/cpanel-login gehen
+Email: llololl904@gmail.com
+Passwort: Geheim4711
+
+2. Manage database
+3. Manage
+-> PhpMyAdmin
+
+4. Unter id2040624_name befindet sich die Datenbank
