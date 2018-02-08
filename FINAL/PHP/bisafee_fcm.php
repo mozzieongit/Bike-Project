@@ -6,10 +6,10 @@
 	//Url des Servers
 	$fcm_server_url = "https://fcm.googleapis.com/fcm/send";
 	
-    $to = $_POST["to"];			//An wen wird es gesendet?
+    	$to = $_POST["to"];			//An wen wird es gesendet?
 	$title = $_POST["title"];	//Titel der Notification
 	$time = $_POST["time"];		//Zeit an der der Alarm ausgelöst wurde
-    $content_text = $_POST["content"];	//Inhalt der Notification
+   	$content_text = $_POST["content"];	//Inhalt der Notification
 	
 	$httpheader = array('Content-Type:application/json','Authorization:key='.$server_key);
 	$post_content = array('to' => $to,'data' => array('title' => $title,'content-text' => $content_text,'time' => $time));	//Array aus den Daten für den Firebase-Server erstellen
